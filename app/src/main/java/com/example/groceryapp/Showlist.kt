@@ -1,27 +1,18 @@
 package com.example.groceryapp
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.getValue
-import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
-import com.google.firebase.dynamiclinks.PendingDynamicLinkData
-import com.google.firebase.ktx.Firebase
-import java.time.LocalDateTime
 import kotlin.collections.ArrayList
 
 class Showlist : AppCompatActivity() {
@@ -38,7 +29,7 @@ class Showlist : AppCompatActivity() {
     lateinit var images: ImageView
     lateinit var search: ImageView
     var code:String=""
-
+var piclist:ArrayList<Any> = ArrayList()
     //lateinit var car:CardView
     var linkdata: Boolean = false
     private val TAG = "TAG"
@@ -75,6 +66,10 @@ class Showlist : AppCompatActivity() {
 //    handlingdynamiclink()
 //
 //}
+        piclist.add(R.drawable.first)
+        piclist.add(R.drawable.second)
+        piclist.add(R.drawable.third)
+        piclist.add(R.drawable.fourth)
         search = findViewById(R.id.imageView5)
         search.setOnClickListener {
             val searc = Intent(this@Showlist, com.example.groceryapp.search::class.java)
@@ -179,7 +174,7 @@ class Showlist : AppCompatActivity() {
 //                                            } else {
 //                                                Log.d("error", "error")
                                             }
-                                            adapt = adapter(this@Showlist, datalist)
+                                            adapt = adapter(this@Showlist, datalist,piclist)
                                             recy.adapter = adapt
                                             recy.layoutManager =
                                                 GridLayoutManager(applicationContext, 2)

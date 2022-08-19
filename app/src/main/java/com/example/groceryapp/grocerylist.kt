@@ -1,6 +1,7 @@
 package com.example.groceryapp
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -8,12 +9,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.internal.ContextUtils.getActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_grocerylist.*
+import kotlinx.android.synthetic.main.fragment_editfragment.*
 
 class grocerylist : AppCompatActivity(),grocerylistparentadapter.Adaptercallback {
     lateinit var Assingedtoall: Button
@@ -26,6 +33,7 @@ class grocerylist : AppCompatActivity(),grocerylistparentadapter.Adaptercallback
     lateinit var addbtn:Button
     lateinit var img: ImageView
    lateinit var ic:ImageView
+   lateinit var mainla:ConstraintLayout
     lateinit var cancel: ImageView
     lateinit var icon:ImageView
     lateinit var title: TextView
@@ -39,11 +47,11 @@ class grocerylist : AppCompatActivity(),grocerylistparentadapter.Adaptercallback
     lateinit var assingedtoall: assingedtoalllist
     lateinit var delete: ImageView
     var fragmentManager = supportFragmentManager
-
+lateinit var frame:FrameLayout
     lateinit var listbasicinfome: listbasicinfo
     private val myMapme: LinkedHashMap<String, java.util.ArrayList<listdetails>> = LinkedHashMap()
 
-    @SuppressLint("Range")
+    @SuppressLint("Range", "RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grocerylist)
@@ -58,12 +66,14 @@ class grocerylist : AppCompatActivity(),grocerylistparentadapter.Adaptercallback
             Assingedtome.setBackgroundResource(R.drawable.border)
             assingtomelist()
         }
+        frame=findViewById(R.id.unique)
 addbtn=findViewById(R.id.button10)
         ic=findViewById(R.id.imageView8)
         title = findViewById(R.id.textView12)
         Assingedtoall = findViewById(R.id.button4)
         rey = findViewById(R.id.assingedparent)
         data = java.util.ArrayList()
+        mainla=findViewById(R.id.main)
         val gson: Gson = Gson()
         val list = intent.getStringExtra("mydata")
         lists = list
@@ -148,6 +158,9 @@ Log.d("okkk","kk")
             mfragment.arguments=bundle
 
             fragmentTransaction.replace(R.id.unique, mfragment)
+          getActivity(this)?.getWindow()?.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+            //frame.background.setAlpha(220);
+
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
@@ -363,14 +376,25 @@ Log.d("okkk","kk")
 
     override fun edit(title: String, itemname: String, category: String, assined: String) {
         val mfr=editfragment()
+        var us=user()
+
+
+
+        BottomSheetBehavior.from(unique).apply {
+            peekHeight=450
+            this.state= BottomSheetBehavior.STATE_COLLAPSED
+        }
         val fragmentransaction=fragmentManager.beginTransaction()
         fragmentransaction.replace(R.id.unique,mfr)
         val bundle=Bundle()
         bundle.putString("title",title)
         bundle.putString("item",itemname)
         bundle.putString("category",category)
-        bundle.putString("assinged",assined)
+        Log.d("jhon",assined)
+        bundle.putString("selected",assined)
         mfr.arguments=bundle
+        addbtn.visibility=  View.GONE
+        addbtn.isEnabled=false
         fragmentransaction.commit()
     }
 

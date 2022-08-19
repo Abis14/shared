@@ -12,8 +12,12 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_grocerylist.*
 import kotlinx.android.synthetic.main.fragment_addtolist.*
 
 
@@ -22,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_addtolist.*
  * Use the [addtolist.newInstance] factory method to
  * create an instance of this fragment.
  */
-class editfragment : Fragment() {
+class editfragment:BottomSheetDialogFragment() {
 
     lateinit var assignlists:TextView
     lateinit var item:EditText
@@ -52,7 +56,6 @@ var titley=""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-
         //val view=inflater.inflate(R.layout.fragment_menu, container, false)
     ): View? {
         // Inflate the layout for this fragme
@@ -62,6 +65,7 @@ var titley=""
         assignlists=view.findViewById(R.id.tt)
         categorylists=view.findViewById(R.id.textView17)
         assignlist= ArrayList()
+
 //        assignlist.add("Assingedtoall")
         //assignlist.add("Assigntoabis")
         categorylist= ArrayList()
@@ -115,7 +119,7 @@ titley=bundle.getString("title").toString()
 
         assignlists.setOnClickListener {
 
-            val assigned = assingedfragment()
+            val assigned =groceryeditassign()
             var bundley = Bundle()
             isassinged=true
             bundley.putString("title", titles)
@@ -128,14 +132,14 @@ titley=bundle.getString("title").toString()
 
         }
 
-        assignlists.setText(arguments?.getString("selected"),TextView.BufferType.EDITABLE)
+        assignlists.text=arguments?.getString("selected")
         //spin2.setBackgroundColor(Color.parseColor("#000000"))
         const2.setBackgroundDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.roundbut));
 
 
         assingcancel.visibility=View.VISIBLE
         assingcancel.setOnClickListener {
-            val assigned = assingedfragment()
+            val assigned =groceryeditassign()
             var bundley = Bundle()
             isassinged=true
             bundley.putString("title", titles)
@@ -148,10 +152,10 @@ titley=bundle.getString("title").toString()
         categorylists.setOnClickListener {
 
             Log.d("spin","spin")
-            val category= categoryfragment()
+            val category= groceryeditcategory()
 
             var bundley = Bundle()
-            bundley.putString("state", "category")
+
 
 
             bundley.putString("selected",arguments?.getString("selected"))
@@ -169,7 +173,7 @@ titley=bundle.getString("title").toString()
         }
         val ok=false
             categorylists.text = arguments?.getString("category")
-
+assignlists.text=arguments?.getString("selected")
         //  spin.setBackgroundColor(Color.parseColor("#000000"))
         catcanc.visibility = View.VISIBLE
         const2.setBackgroundDrawable(
@@ -184,7 +188,7 @@ titley=bundle.getString("title").toString()
         // const.setBackgroundColor(Color.parseColor("#000000"))
         // const.background.setColorFilter(Color.parseColor("#000000"), PorterDuff.Mode.ADD);
         catcanc.setOnClickListener {   Log.d("spin","spin")
-            val category= categoryfragment()
+            val category= groceryeditcategory()
 
             var bundley = Bundle()
             bundley.putString("state", "category")
@@ -199,7 +203,7 @@ titley=bundle.getString("title").toString()
             if (support != null) {
                 category.show(support, category.tag)
             } }
-        val sharedPreferenced=getActivity()?.getSharedPreferences("mycategory",Context.MODE_PRIVATE)
+
 
         addbtn.setOnClickListener {
             var listdetailss=listdetails2(item.text.toString(),categorylists.text.toString(),assignlists.text.toString())
@@ -216,8 +220,10 @@ titley=bundle.getString("title").toString()
                                 childs.child("listdetails").children.forEach { category->
                                     if(category.child("category").value==categorylists.text.toString())
                                     {
-                                        val id=category.key.toString()
-                                        Log.d("id",id)
+                                       val ids=category.key.toString()
+                                        FirebaseDatabase.getInstance().getReference("grocerylist").child("listbasicinfo").child(id).child("listdetails").child(ids).setValue(listdetailss).addOnSuccessListener {
+                                            Toast.makeText(activity, "save change successfully", Toast.LENGTH_SHORT).show()
+                                        }
                                     }
                                 }
 

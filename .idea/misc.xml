@@ -54,18 +54,20 @@
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/drawable/oneborder.xml" value="0.226" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/drawable/round.xml" value="0.226" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/drawable/roundbut.xml" value="0.226" />
-        <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/activity_grocerylist.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/activity_grocerylist.xml" value="0.25" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/card.xml" value="0.33" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/childcard.xml" value="0.358695652173913" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/fragment_addtolist.xml" value="0.40764331210191085" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/fragment_assingedfragment.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/fragment_assingedtoalllist.xml" value="0.35280797101449274" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/fragment_categoryfragment.xml" value="0.358695652173913" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/fragment_editfragment.xml" value="0.358695652173913" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/fragment_groceryadd.xml" value="0.358695652173913" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/fragment_groceryaddassign.xml" value="0.358695652173913" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/fragment_groceryaddcategory.xml" value="0.358695652173913" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/grocerylistchildcard.xml" value="0.5615491009681881" />
-        <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/grocerylistparentcard.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/grocerylistparentcard.xml" value="0.75" />
+        <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/personimages.xml" value="0.67" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/myprojectlast-master/app/src/main/res/layout/spinneritem.xml" value="0.358695652173913" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/mytest-master/mytest-master/app/src/main/res/drawable/border.xml" value="0.226" />
         <entry key="..\:/Users/2ndmouseventure/Desktop/mytest-master/mytest-master/app/src/main/res/drawable/nocolor.xml" value="0.226" />

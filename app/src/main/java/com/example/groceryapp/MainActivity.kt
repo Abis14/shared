@@ -28,14 +28,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         auth=FirebaseAuth.getInstance()
         user=auth.currentUser
-       Handler(Looper.getMainLooper()).postDelayed({
+
            if (user != null) {
                val intent = Intent(this@MainActivity, Showlist::class.java)
 
                handlingdynamiclink()
                startActivity(intent)
            } else {
-               handlingdynamiclink()
+
                val signin = Intent(this, SIGNIN::class.java)
                if (check) {
                    signin.putExtra("id", id)
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                }
                startActivity(signin)
            }
-       },3000)
+
 
 
 

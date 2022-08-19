@@ -14,7 +14,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="310dp">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textView7"
@@ -29,18 +29,26 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recchild"
-            android:layout_width="373dp"
-            android:layout_height="188dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="11dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7"
-            app:layout_constraintVertical_bias="0.152" />// tools:listitem="@layout/childcard" />
+            tools:listitem="@layout/childcard" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/imgrec"
+        android:layout_width="402dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"/>
+
 
 </androidx.cardview.widget.CardView>

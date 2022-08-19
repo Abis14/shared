@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".editfragment">
+    tools:context=".editfragment"
+    android:background="@drawable/round"
+    android:backgroundTint="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,11 +17,12 @@
             android:layout_width="329dp"
             android:layout_height="60dp"
             android:layout_marginStart="27dp"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="55dp"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,8 +30,8 @@
             android:id="@+id/constc"
             android:layout_width="133dp"
             android:layout_height="39dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="17dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="29dp"
             android:background="@drawable/newbg"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/itemname">
@@ -37,8 +40,8 @@
                 android:id="@+id/textView17"
                 android:layout_width="79dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:text="TextView"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,21 +51,22 @@
                 android:id="@+id/imageView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:src="@drawable/speen"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView17"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.4" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constr"
             android:layout_width="136dp"
             android:layout_height="43dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="55dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="68dp"
             android:background="@drawable/newbg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/itemname">
@@ -100,12 +104,13 @@
             android:layout_width="322dp"
             android:layout_height="77dp"
             android:layout_marginStart="38dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="44dp"
             android:layout_marginEnd="51dp"
             android:background="@drawable/round"
             android:text="Save Changes"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constc" />
     </androidx.constraintlayout.widget.ConstraintLayout>

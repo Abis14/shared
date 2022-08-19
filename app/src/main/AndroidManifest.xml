@@ -23,7 +23,9 @@
             android:exported="false" />
         <activity
             android:name=".grocerylist"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing"
+            />
         <activity
             android:name=".listadd"
             android:exported="false" />

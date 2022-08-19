@@ -14,6 +14,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_addtolist.*
@@ -25,7 +26,7 @@ import java.time.LocalDateTime
  * Use the [addtolist.newInstance] factory method to
  * create an instance of this fragment.
  */
-class groceryadd : Fragment() {
+class groceryadd : BottomSheetDialogFragment() {
 
     lateinit var spin:Button
     lateinit var item:EditText
